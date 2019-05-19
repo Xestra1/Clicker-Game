@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Xestra</title>
+</head>
+
+<body>
+    <h1>Clicker Game</h1>
+
+    <div class="game">
+        <div class="totalAmount">
+            <p>💵<a id="total"></a></p>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <a id="click">💵</a>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div class="generators">
+            <ul>
+                <li onclick="buy(0)">
+                    <p class="title">💻
+                        <br>
+                        Bitcoin Miner</p>
+                    <br>
+                    <p>Cost: 💵<a id="cost0"></a></p>
+                    <p>💵<a id="production0"></a>/Second</p>
+                    <p>Total Amount Owned: <a id="owned0"></a></p>
+                </li>
+                <li onclick="buy(1)">
+                    <p class="title">🏭
+                        <br>
+                        Factory</p>
+                    <br>
+                    <p>Cost: 💵<a id="cost1"></a></p>
+                    <p>💵<a id="production1"></a>/Second</p>
+                    <p>Total Amount Owned: <a id="owned1"></a></p>
+                </li>
+                <li onclick="buy(2)">
+                    <p class="title">💎
+                        <br>
+                        Metals</p>
+                    <br>
+                    <p>Cost: 💵<a id="cost2"></a></p>
+                    <p>💵<a id="production2"></a>/Second</p>
+                    <p>Total Amount Owned: <a id="owned2"></a></p>
+                </li>
+                <li onclick="buy(3)">
+                    <p class="title">🎩
+                        <br>
+                        Business Man</p>
+                    <br>
+                    <p>Cost: 💵<a id="cost3"></a></p>
+                    <p>💵<a id="production3"></a>/Second</p>
+                    <p>Total Amount Owned: <a id="owned3"></a></p>
+                </li>
+                <li onclick="buy(4)">
+                    <p class="title">🏟
+                        <br>
+                        Sports Team</p>
+                    <br>
+                    <p>Cost: 💵<a id="cost4"></a></p>
+                    <p>💵<a id="production4"></a>/Second</p>
+                    <p>Total Amount Owned: <a id="owned4"></a></p>
+                </li>
+                <li onclick="buy(5)">
+                    <p class="title">🌎
+                        <br>
+                        Earth</p>
+                    <br>
+                    <p>Cost: 💵<a id="cost5"></a></p>
+                    <p>💵<a id="production5"></a>/Second</p>
+                    <p>Total Amount Owned: <a id="owned5"></a></p>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="./js/app.js"></script>
+</body>
+
+</html>
