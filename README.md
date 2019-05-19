@@ -2,4 +2,4 @@
 
 A simple clicker game
 
-url
+https://xestra1.github.io/Clicker-Game/src/
