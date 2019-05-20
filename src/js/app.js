@@ -1,4 +1,4 @@
-var total = 0321321321;
+var total = 0;
 var buyMultiplier = 1;
 var upgrade = {
     cost: 50000,
