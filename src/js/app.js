@@ -1,4 +1,4 @@
-var total = 0;
+var total = 21210;
 var clickMultiplier = 1;
 var buyMultiplier = 1;
 var upgrade = {
@@ -95,7 +95,7 @@ function buy(id) {
     if (total >= temp) {
         generators[id].amountOwned += buyMultiplier;
         total -= temp;
-        generators[id].cost = generators[id].cost + generators[id].amountOwned * generators[id].production;
+        generators[id].cost = generators[id].cost + generators[id].production * buyMultiplier;
         // Math.floor(generators[id].cost * 0.01 + generators[id].cost)
         document.getElementById("owned" + id).innerHTML = generators[id].amountOwned;
         document.getElementById("total").innerHTML = total;
