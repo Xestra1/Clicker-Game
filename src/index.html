@@ -26,6 +26,16 @@
         <br>
         <br>
         <br>
+        <br>
+        <div id="upgrade" onclick="upgradeProduction()">
+            <p>Cost to upgrade: <a id="upgradeCost"></a></p>
+            <p>Upgrade Multiplier: <a id="upgradeMultiplier"></a></p>
+        </div>
+        <br>
+        <a onclick="multiplier(1)">1x</a>
+        <a onclick="multiplier(10)">10x</a>
+        <a onclick="multiplier(100)">100x</a>
+        <p><a id="changedMultiplier">1</a>x</p>
         <div class="generators">
             <ul>
                 <li onclick="buy(0)">

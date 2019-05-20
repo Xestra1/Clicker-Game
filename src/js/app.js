@@ -1,4 +1,10 @@
-var total = 0;
+var total = 10000000;
+var buyMultiplier = 1;
+var upgrade = {
+    cost: 50000,
+    multiplier: 2,
+    max: 0
+};
 var generators = [{
         id: 0,
         name: "Bitcoin Miner",
@@ -31,14 +37,14 @@ var generators = [{
         id: 4,
         name: "Sports Team",
         cost: 1000000,
-        production: 1000,
+        production: 10000,
         amountOwned: 0
     },
     {
         id: 5,
         name: "Earth",
         cost: 10000000,
-        production: 10000,
+        production: 100000,
         amountOwned: 0
     }
 ];
@@ -62,6 +68,8 @@ document.getElementById("production4").innerHTML = generators[4].production;
 document.getElementById("owned5").innerHTML = generators[5].amountOwned;
 document.getElementById("cost5").innerHTML = generators[5].cost;
 document.getElementById("production5").innerHTML = generators[5].production;
+document.getElementById("upgradeCost").innerHTML = upgrade.cost;
+document.getElementById("upgradeMultiplier").innerHTML = upgrade.multiplier;
 
 function click() {
     total++;
@@ -69,12 +77,38 @@ function click() {
 }
 document.getElementById('click').addEventListener('click', click);
 
+function upgradeProduction() {
+    if (upgrade.max < 6) {
+        total -= upgrade.cost;
+        var x;
+        for (x = 0; x < 6; x++) {
+            generators[x].production *= upgrade.multiplier;
+            document.getElementById("production" + x).innerHTML = generators[x].production;
+        }
+        upgrade.cost *= 2;
+        upgrade.multiplier *= 2;
+        document.getElementById("upgradeCost").innerHTML = upgrade.cost;
+        document.getElementById("upgradeMultiplier").innerHTML = upgrade.multiplier;
+        document.getElementById("total").innerHTML = total;
+        upgrade.max++;
+    } else {
+        document.getElementById("upgrade").style.opacity = 0.5;
+    }
+}
+
+function multiplier(value) {
+    buyMultiplier = value;
+    document.getElementById("changedMultiplier").innerHTML = value;
+}
+
 function buy(id) {
     if (total >= generators[id].cost) {
-        generators[id].amountOwned++;
+        generators[id].amountOwned += buyMultiplier;
         total -= generators[id].cost;
+        generators[id].cost = Math.floor(generators[id].cost * 0.01 + generators[id].cost);
         document.getElementById("owned" + id).innerHTML = generators[id].amountOwned;
         document.getElementById("total").innerHTML = total;
+        document.getElementById("cost" + id).innerHTML = generators[id].cost;
     }
 }
 
