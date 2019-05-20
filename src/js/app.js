@@ -1,4 +1,5 @@
 var total = 0;
+var clickMultiplier = 1;
 var buyMultiplier = 1;
 var upgrade = {
     cost: 50000,
@@ -59,7 +60,7 @@ document.getElementById("upgradeCost").innerHTML = upgrade.cost;
 document.getElementById("upgradeMultiplier").innerHTML = upgrade.multiplier;
 
 function click() {
-    total++;
+    total += clickMultiplier;
     document.getElementById("total").innerHTML = total;
 }
 document.getElementById('click').addEventListener('click', click);
@@ -72,8 +73,9 @@ function upgradeProduction() {
             generators[x].production *= upgrade.multiplier;
             document.getElementById("production" + x).innerHTML = generators[x].production;
         }
-        upgrade.cost *= 15;
+        upgrade.cost *= 7.5;
         upgrade.multiplier *= 2;
+        clickMultiplier *= 2;
         document.getElementById("upgradeCost").innerHTML = upgrade.cost;
         document.getElementById("upgradeMultiplier").innerHTML = upgrade.multiplier;
         document.getElementById("total").innerHTML = total;
