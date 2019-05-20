@@ -1,4 +1,4 @@
-var total = 0;
+var total = 0321321321;
 var buyMultiplier = 1;
 var upgrade = {
     cost: 50000,
@@ -89,15 +89,16 @@ function multiplier(value) {
 }
 
 function buy(id) {
-    if (total >= generators[id].cost) {
+    var temp = buyMultiplier * generators[id].cost;
+    if (total >= temp) {
         generators[id].amountOwned += buyMultiplier;
-        var temp = buyMultiplier * generators[id].cost;
         total -= temp;
         generators[id].cost = Math.floor(generators[id].cost * 0.01 + generators[id].cost);
         document.getElementById("owned" + id).innerHTML = generators[id].amountOwned;
         document.getElementById("total").innerHTML = total;
         document.getElementById("cost" + id).innerHTML = generators[id].cost;
     }
+    temp = '';
 }
 
 function production() {
