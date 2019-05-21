@@ -1,4 +1,4 @@
-var total = 0;
+var total = 100000000000;
 var clickMultiplier = 1;
 var buyMultiplier = 1;
 var upgrade = {
@@ -56,13 +56,14 @@ for (i = 0; i < 6; i++) {
     document.getElementById("cost" + i).innerHTML = generators[i].cost;
     document.getElementById("production" + i).innerHTML = generators[i].production;
 }
-document.getElementById("upgradeCost").innerHTML = upgrade.cost;
+document.getElementById("upgradeCost0").innerHTML = upgrade.cost;
 document.getElementById("upgradeMultiplier").innerHTML = upgrade.multiplier;
 
 function click() {
     total += clickMultiplier;
     document.getElementById("total").innerHTML = total;
 }
+
 document.getElementById('click').addEventListener('click', click);
 
 function upgradeProduction() {
@@ -76,13 +77,13 @@ function upgradeProduction() {
         upgrade.cost *= 7.5;
         upgrade.multiplier = Math.floor(upgrade.multiplier * 1.5);
         clickMultiplier *= 2;
-        document.getElementById("upgradeCost").innerHTML = upgrade.cost;
+        document.getElementById("upgradeCost0").innerHTML = upgrade.cost;
         document.getElementById("upgradeMultiplier").innerHTML = upgrade.multiplier;
         document.getElementById("total").innerHTML = total;
         upgrade.max++;
-        console.log(upgrade.max);
     } else if (upgrade.max === 6) {
-        document.getElementById("upgrade").style.opacity = 0.5;
+        document.getElementById("upgradeCost0").style.opacity = 0.5;
+        document.getElementById("upgradeMultiplier").style.opacity = 0.5;
     }
 }
 
@@ -127,3 +128,31 @@ function production() {
     document.getElementById("total").innerHTML = total;
 }
 setInterval(production, 1000);
+
+
+
+// var autoClicker = {
+//     cost: 100000,
+//     haveAutoClicker: false
+// };
+
+// document.getElementById("upgradeCost1").innerHTML = autoClicker.cost;
+// document.getElementById("Autoclicker").innerHTML = autoClicker.haveAutoClicker;
+
+// if (autoClicker.haveAutoClicker === false) {
+//     document.getElementById('click').addEventListener('click', click);
+//     console.log('object');
+// } else if (autoClicker.haveAutoClicker === true) {
+//     document.getElementById('click').addEventListener('onmouseenter', click);
+//     console.log('objfdsect');
+// }
+
+// function upgradeAutoClicker() {
+//     if (autoClicker.cost <= total && autoClicker.haveAutoClicker === false) {
+//         total -= autoClicker.cost;
+//         autoClicker.haveAutoClicker = true;
+//         document.getElementById("Autoclicker").innerHTML = autoClicker.haveAutoClicker;
+//         document.getElementById("upgradeCost1").style.opacity = 0.5;
+//         document.getElementById("Autoclicker").style.opacity = 0.5;
+//     }
+// }

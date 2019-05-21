@@ -187,6 +187,21 @@ h1 {
     font-size: 20px;
 }
 
-#upgrade {
+/* .upgrades {
+    display: grid;
+    grid-template: 'zero one';
+    max-width: 500px;
+    margin: 0 auto;
+} */
+
+.upgrade {
     user-select: none;
 }
+
+/* .upgrades .zero {
+    grid-area: 'zero';
+}
+
+.upgrades .one {
+    grid-area: 'one';
+} */
