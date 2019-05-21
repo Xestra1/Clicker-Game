@@ -1,9 +1,9 @@
-var total = 0;
+var total = 122132320;
 var clickMultiplier = 1;
 var buyMultiplier = 1;
 var upgrade = {
     cost: 50000,
-    multiplier: 2,
+    multiplier: 1.5,
     max: 0
 };
 var generators = [{
@@ -23,8 +23,8 @@ var generators = [{
     {
         id: 2,
         name: "Metals",
-        cost: 2000,
-        production: 20,
+        cost: 2500,
+        production: 25,
         amountOwned: 0
     },
     {
@@ -37,15 +37,15 @@ var generators = [{
     {
         id: 4,
         name: "Sports Team",
-        cost: 1000000,
-        production: 10000,
+        cost: 250000,
+        production: 2500,
         amountOwned: 0
     },
     {
         id: 5,
         name: "Earth",
-        cost: 10000000,
-        production: 100000,
+        cost: 5000000,
+        production: 50000,
         amountOwned: 0
     }
 ];
@@ -74,12 +74,13 @@ function upgradeProduction() {
             document.getElementById("production" + x).innerHTML = generators[x].production;
         }
         upgrade.cost *= 7.5;
-        upgrade.multiplier *= 2;
+        upgrade.multiplier = Math.floor(upgrade.multiplier * 1.5);
         clickMultiplier *= 2;
         document.getElementById("upgradeCost").innerHTML = upgrade.cost;
         document.getElementById("upgradeMultiplier").innerHTML = upgrade.multiplier;
         document.getElementById("total").innerHTML = total;
         upgrade.max++;
+        console.log(upgrade.max);
     } else if (upgrade.max === 6) {
         document.getElementById("upgrade").style.opacity = 0.5;
     }
