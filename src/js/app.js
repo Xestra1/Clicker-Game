@@ -1,4 +1,4 @@
-var total = 122132320;
+var total = 0;
 var clickMultiplier = 1;
 var buyMultiplier = 1;
 var upgrade = {
