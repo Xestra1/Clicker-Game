@@ -9,49 +9,63 @@ var upgrade = {
 var generators = [{
         id: 0,
         name: "Bitcoin Miner",
+        cost: 25,
+        production: 0.25,
+        amountOwned: 0
+    },
+    {
+        id: 1,
+        name: "Bitcoin Miner",
         cost: 100,
         production: 1,
         amountOwned: 0
     },
     {
-        id: 1,
+        id: 2,
         name: "Factory",
         cost: 500,
         production: 5,
         amountOwned: 0
     },
     {
-        id: 2,
+        id: 3,
         name: "Metals",
         cost: 2500,
         production: 25,
         amountOwned: 0
     },
     {
-        id: 3,
+        id: 4,
         name: "Business Man",
         cost: 50000,
         production: 500,
         amountOwned: 0
     },
     {
-        id: 4,
+        id: 5,
         name: "Sports Team",
         cost: 250000,
         production: 2500,
         amountOwned: 0
     },
     {
-        id: 5,
+        id: 6,
         name: "Earth",
         cost: 5000000,
         production: 50000,
+        amountOwned: 0
+    },
+    {
+        id: 7,
+        name: "Bitcoin Miner",
+        cost: 15000000,
+        production: 150000,
         amountOwned: 0
     }
 ];
 
 document.getElementById("total").innerHTML = total;
-for (i = 0; i < 6; i++) {
+for (i = 0; i < 8; i++) {
     document.getElementById("owned" + i).innerHTML = generators[i].amountOwned;
     document.getElementById("cost" + i).innerHTML = generators[i].cost;
     document.getElementById("production" + i).innerHTML = generators[i].production;
@@ -70,7 +84,7 @@ function upgradeProduction() {
     if (upgrade.max < 6 && upgrade.cost <= total) {
         total -= upgrade.cost;
         var x;
-        for (x = 0; x < 6; x++) {
+        for (x = 0; x < 8; x++) {
             generators[x].production *= upgrade.multiplier;
             document.getElementById("production" + x).innerHTML = generators[x].production;
         }
@@ -124,6 +138,12 @@ function production() {
 
     var genTotal5 = generators[5].production * generators[5].amountOwned;
     total += genTotal5;
+
+    var genTotal6 = generators[6].production * generators[6].amountOwned;
+    total += genTotal6;
+
+    var genTotal7 = generators[7].production * generators[7].amountOwned;
+    total += genTotal7;
 
     document.getElementById("total").innerHTML = total;
 }
