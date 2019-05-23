@@ -151,6 +151,7 @@ setInterval(production, 1000);
 
 
 
+
 // var autoClicker = {
 //     cost: 100000,
 //     haveAutoClicker: false
