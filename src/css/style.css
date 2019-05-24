@@ -151,8 +151,12 @@ h1 {
 #click {
     font-size: 100px;
     border: 1px solid #757575;
-    padding: 30px 20px;
+    /* padding: 30px 20px; */
+    line-height: 200px;
+    width: 200px;
+    height: 200px;
     border-radius: 10000px;
+    margin: 0 auto 20px auto;
     /* position: absolute;
     top: 50%;
     left: 25%;
@@ -187,21 +191,44 @@ h1 {
     font-size: 20px;
 }
 
-/* .upgrades {
-    display: grid;
-    grid-template: 'zero one';
-    max-width: 500px;
-    margin: 0 auto;
-} */
+.upgrades {
+    border: 1px solid #757575;
+    overflow: scroll;
+    height: 200px;
+}
 
 .upgrade {
+    margin: 10px 0;
     user-select: none;
 }
 
-/* .upgrades .zero {
-    grid-area: 'zero';
+.clickUpgrades {
+    display: grid;
+    grid-template: 'click upgrade';
+    max-width: 500px;
+    margin: 0 auto;
 }
 
-.upgrades .one {
-    grid-area: 'one';
-} */
+.inUpgrades {
+    overflow: scroll;
+    height: 147px;
+    margin-top: -9px;
+}
+
+.upgrades h3 {
+    font-size: 30px;
+    margin: 10px 0 0 0;
+}
+
+.upgrades h6 {
+    font-size: 20px;
+    margin: 5px;
+}
+
+@media screen and (max-width: 500px) {
+
+    .clickUpgrades {
+        grid-template: 'click'
+            'upgrade';
+    }
+}

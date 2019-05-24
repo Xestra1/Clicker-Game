@@ -21,7 +21,7 @@
         <br>
         <br>
         <br>
-        <a id="click">💵</a>
+        <!-- <a id="click">💵</a>
         <br>
         <br>
         <br>
@@ -35,9 +35,67 @@
             <!-- <div class="upgrade one" onclick="upgradeAutoClicker()">
                 <p>Cost to upgrade: <a id="upgradeCost1"></a></p>
                 <p>Autoclicker: <a id="Autoclicker"></a></p>
-            </div> -->
+            </div>
+        </div> -->
+        <div class="clickUpgrades">
+            <a id="click">💵</a>
+            <div class="upgrades">
+                <!-- <div class="upgrade zero" onclick="upgradeProduction()">
+                    <p>Cost to upgrade: <a id="upgradeCostAll0"></a></p>
+                    <p>Upgrade Multiplier: <a id="upgradeMultiplierAll"></a></p>
+                </div> -->
+                <h3>Upgrades</h3>
+                <hr>
+                <!-- <div class="inUpgrades"> -->
+                <div class="upgrade" onclick="upgrade(0, 10)">
+                    <h6>Click</h6>
+                    <p>Cost to upgrade: <a id="upgradeCost0"></a></p>
+                    <p>Upgrade Multiplier: <a id="upgradeMultiplier0"></a></p>
+                </div>
+                <div class="upgrade" onclick="upgrade(1, 0)">
+                    <h6>Clicker</h6>
+                    <p>Cost to upgrade: <a id="upgradeCost1"></a></p>
+                    <p>Upgrade Multiplier: <a id="upgradeMultiplier1"></a></p>
+                </div>
+                <div class="upgrade" onclick="upgrade(2,1)">
+                    <h6>Bitcoin Miner</h6>
+                    <p>Cost to upgrade: <a id="upgradeCost2"></a></p>
+                    <p>Upgrade Multiplier: <a id="upgradeMultiplier2"></a></p>
+                </div>
+                <div class="upgrade" onclick="upgrade(3,2)">
+                    <h6>Factory</h6>
+                    <p>Cost to upgrade: <a id="upgradeCost3"></a></p>
+                    <p>Upgrade Multiplier: <a id="upgradeMultiplier3"></a></p>
+                </div>
+                <div class="upgrade" onclick="upgrade(4,3)">
+                    <h6>Metals</h6>
+                    <p>Cost to upgrade: <a id="upgradeCost4"></a></p>
+                    <p>Upgrade Multiplier: <a id="upgradeMultiplier4"></a></p>
+                </div>
+                <div class="upgrade" onclick="upgrade(5,4)">
+                    <h6>Business Man</h6>
+                    <p>Cost to upgrade: <a id="upgradeCost5"></a></p>
+                    <p>Upgrade Multiplier: <a id="upgradeMultiplier5"></a></p>
+                </div>
+                <div class="upgrade" onclick="upgrade(6,5)">
+                    <h6>Sports Team</h6>
+                    <p>Cost to upgrade: <a id="upgradeCost6"></a></p>
+                    <p>Upgrade Multiplier: <a id="upgradeMultiplier6"></a></p>
+                </div>
+                <div class="upgrade" onclick="upgrade(7,6)">
+                    <h6>Earth</h6>
+                    <p>Cost to upgrade: <a id="upgradeCost7"></a></p>
+                    <p>Upgrade Multiplier: <a id="upgradeMultiplier7"></a></p>
+                </div>
+                <div class="upgrade" onclick="upgrade(8,7)">
+                    <h6>Universe</h6>
+                    <p>Cost to upgrade: <a id="upgradeCost8"></a></p>
+                    <p>Upgrade Multiplier: <a id="upgradeMultiplier8"></a></p>
+                </div>
+
+            </div>
         </div>
-        <br>
+        <br><br>
         <a onclick="multiplier(1)">1x</a>
         <a onclick="multiplier(10)">10x</a>
         <a onclick="multiplier(100)">100x</a>

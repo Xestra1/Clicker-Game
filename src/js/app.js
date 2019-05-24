@@ -1,14 +1,9 @@
 var total = 0;
 var clickMultiplier = 1;
 var buyMultiplier = 1;
-var upgrade = {
-    cost: 50000,
-    multiplier: 1.5,
-    max: 0
-};
 var generators = [{
         id: 0,
-        name: "Bitcoin Miner",
+        name: "Clicker",
         cost: 25,
         production: 0.25,
         amountOwned: 0
@@ -57,10 +52,56 @@ var generators = [{
     },
     {
         id: 7,
-        name: "Bitcoin Miner",
+        name: "Universe",
         cost: 15000000,
         production: 150000,
         amountOwned: 0
+    }
+];
+var upgrades = [{
+        name: "Click",
+        cost: 100,
+        multiplier: 2
+    },
+    {
+        name: "Clicker",
+        cost: 100,
+        multiplier: 2
+    },
+    {
+        name: "Bitcoin Miner",
+        cost: 400,
+        multiplier: 2
+    },
+    {
+        name: "Factory",
+        cost: 2000,
+        multiplier: 2
+    },
+    {
+        name: "Metals",
+        cost: 10000,
+        multiplier: 2
+    },
+    {
+        name: "Business Man",
+        cost: 200000,
+        multiplier: 2
+    },
+    {
+        name: "Sports Team",
+        cost: 1000000,
+        multiplier: 2
+    },
+    {
+        name: "Earth",
+        cost: 20000000,
+        multiplier: 2
+    },
+    {
+        name: "Universe",
+        cost: 60000000,
+        multiplier: 2
     }
 ];
 
@@ -70,8 +111,10 @@ for (i = 0; i < 8; i++) {
     document.getElementById("cost" + i).innerHTML = generators[i].cost;
     document.getElementById("production" + i).innerHTML = generators[i].production;
 }
-document.getElementById("upgradeCost0").innerHTML = upgrade.cost;
-document.getElementById("upgradeMultiplier").innerHTML = upgrade.multiplier;
+for (h = 0; h < 9; h++) {
+    document.getElementById("upgradeCost" + h).innerHTML = upgrades[h].cost;
+    document.getElementById("upgradeMultiplier" + h).innerHTML = upgrades[h].multiplier;
+}
 
 function click() {
     total += clickMultiplier;
@@ -80,24 +123,22 @@ function click() {
 
 document.getElementById('click').addEventListener('click', click);
 
-function upgradeProduction() {
-    if (upgrade.max < 6 && upgrade.cost <= total) {
-        total -= upgrade.cost;
-        var x;
-        for (x = 0; x < 8; x++) {
-            generators[x].production *= upgrade.multiplier;
-            document.getElementById("production" + x).innerHTML = generators[x].production;
-        }
-        upgrade.cost *= 7.5;
-        upgrade.multiplier = Math.floor(upgrade.multiplier * 1.5);
-        clickMultiplier *= 2;
-        document.getElementById("upgradeCost0").innerHTML = upgrade.cost;
-        document.getElementById("upgradeMultiplier").innerHTML = upgrade.multiplier;
-        document.getElementById("total").innerHTML = total;
-        upgrade.max++;
-    } else if (upgrade.max === 6) {
-        document.getElementById("upgradeCost0").style.opacity = 0.5;
-        document.getElementById("upgradeMultiplier").style.opacity = 0.5;
+function upgrade(id, upgrade) {
+    if (upgrade === 10 && upgrades[id].cost <= total) {
+        total -= upgrades[id].cost;
+        clickMultiplier *= upgrades[id].multiplier;
+        upgrades[id].cost *= 2;
+        upgrades[id].multiplier++;
+        document.getElementById("upgradeCost" + id).innerHTML = upgrades[id].cost;
+        document.getElementById("upgradeMultiplier" + id).innerHTML = upgrades[id].multiplier;
+    } else if (upgrades[id].cost <= total) {
+        total -= upgrades[id].cost;
+        generators[upgrade].production *= upgrades[id].multiplier;
+        upgrades[id].cost *= 2;
+        upgrades[id].multiplier++;
+        document.getElementById("upgradeCost" + id).innerHTML = upgrades[id].cost;
+        document.getElementById("upgradeMultiplier" + id).innerHTML = upgrades[id].multiplier;
+        document.getElementById("production" + upgrade).innerHTML = generators[upgrade].production;
     }
 }
 
@@ -112,7 +153,6 @@ function buy(id) {
         generators[id].amountOwned += buyMultiplier;
         total -= temp;
         generators[id].cost = generators[id].cost + generators[id].production * buyMultiplier;
-        // Math.floor(generators[id].cost * 0.01 + generators[id].cost)
         document.getElementById("owned" + id).innerHTML = generators[id].amountOwned;
         document.getElementById("total").innerHTML = total;
         document.getElementById("cost" + id).innerHTML = generators[id].cost;
@@ -150,6 +190,35 @@ function production() {
 setInterval(production, 1000);
 
 
+// var upgrade = {
+//     cost: 50000,
+//     multiplier: 1.5,
+//     max: 0
+// };
+
+// document.getElementById("upgradeCostAll0").innerHTML = upgrade.cost;
+// document.getElementById("upgradeMultiplierAll").innerHTML = upgrade.multiplier;
+
+// function upgradeProduction() {
+//     if (upgrade.max < 6 && upgrade.cost <= total) {
+//         total -= upgrade.cost;
+//         var x;
+//         for (x = 0; x < 8; x++) {
+//             generators[x].production *= upgrade.multiplier;
+//             document.getElementById("production" + x).innerHTML = generators[x].production;
+//         }
+//         upgrade.cost *= 7.5;
+//         upgrade.multiplier = Math.floor(upgrade.multiplier * 1.5);
+//         clickMultiplier *= 2;
+//         document.getElementById("upgradeCost0").innerHTML = upgrade.cost;
+//         document.getElementById("upgradeMultiplier").innerHTML = upgrade.multiplier;
+//         document.getElementById("total").innerHTML = total;
+//         upgrade.max++;
+//     } else if (upgrade.max === 6) {
+//         document.getElementById("upgradeCost0").style.opacity = 0.5;
+//         document.getElementById("upgradeMultiplier").style.opacity = 0.5;
+//     }
+// }
 
 
 // var autoClicker = {
