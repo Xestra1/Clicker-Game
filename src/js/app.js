@@ -1,4 +1,4 @@
-var total = 0;
+var total = 150000000;
 var clickMultiplier = 1;
 var buyMultiplier = 1;
 var generators = [{
@@ -61,47 +61,65 @@ var generators = [{
 var upgrades = [{
         name: "Click",
         cost: 100,
-        multiplier: 2
+        multiplier: 2,
+        maxTotal: 10,
+        max: 0
     },
     {
         name: "Clicker",
         cost: 100,
-        multiplier: 2
+        multiplier: 2,
+        maxTotal: 5,
+        max: 0
     },
     {
         name: "Bitcoin Miner",
         cost: 400,
-        multiplier: 2
+        multiplier: 2,
+        maxTotal: 5,
+        max: 0
     },
     {
         name: "Factory",
         cost: 2000,
-        multiplier: 2
+        multiplier: 2,
+        maxTotal: 5,
+        max: 0
     },
     {
         name: "Metals",
         cost: 10000,
-        multiplier: 2
+        multiplier: 2,
+        maxTotal: 5,
+        max: 0
     },
     {
         name: "Business Man",
         cost: 200000,
-        multiplier: 2
+        multiplier: 2,
+        maxTotal: 5,
+        max: 0
     },
     {
         name: "Sports Team",
         cost: 1000000,
-        multiplier: 2
+        multiplier: 2,
+        maxTotal: 5,
+        max: 0
     },
     {
         name: "Earth",
         cost: 20000000,
-        multiplier: 2
+        multiplier: 2,
+        maxTotal: 5,
+        max: 0
     },
     {
         name: "Universe",
         cost: 60000000,
-        multiplier: 2
+        multiplier: 2,
+        maxTotal: 5,
+        max: 0
     }
 ];
 
@@ -124,21 +142,26 @@ function click() {
 document.getElementById('click').addEventListener('click', click);
 
 function upgrade(id, upgrade) {
-    if (upgrade === 10 && upgrades[id].cost <= total) {
+    if (upgrade === 10 && upgrades[id].cost <= total && upgrades[id].max < upgrades[id].maxTotal) {
+        upgrades[id].max++;
         total -= upgrades[id].cost;
         clickMultiplier *= upgrades[id].multiplier;
-        upgrades[id].cost *= 2;
+        upgrades[id].cost *= 4;
         upgrades[id].multiplier++;
         document.getElementById("upgradeCost" + id).innerHTML = upgrades[id].cost;
         document.getElementById("upgradeMultiplier" + id).innerHTML = upgrades[id].multiplier;
-    } else if (upgrades[id].cost <= total) {
+    } else if (upgrades[id].cost <= total && upgrades[id].max < upgrades[id].maxTotal) {
+        upgrades[id].max++;
         total -= upgrades[id].cost;
         generators[upgrade].production *= upgrades[id].multiplier;
-        upgrades[id].cost *= 2;
+        upgrades[id].cost *= 4;
         upgrades[id].multiplier++;
         document.getElementById("upgradeCost" + id).innerHTML = upgrades[id].cost;
         document.getElementById("upgradeMultiplier" + id).innerHTML = upgrades[id].multiplier;
         document.getElementById("production" + upgrade).innerHTML = generators[upgrade].production;
+    } else if (upgrades[id].max === upgrades[id].maxTotal) {
+        document.getElementById("upgradeCost" + id).style.opacity = 0.5;
+        document.getElementById("upgradeMultiplier" + id).style.opacity = 0.5;
     }
 }
 
