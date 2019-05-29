@@ -138,7 +138,6 @@ function click() {
     total += clickMultiplier;
     document.getElementById("total").innerHTML = total;
 }
-
 document.getElementById('click').addEventListener('click', click);
 
 function upgrade(id, upgrade) {
@@ -184,30 +183,10 @@ function buy(id) {
 }
 
 function production() {
-    var genTotal0 = generators[0].production * generators[0].amountOwned;
-    total += genTotal0;
-
-    var genTotal1 = generators[1].production * generators[1].amountOwned;
-    total += genTotal1;
-
-    var genTotal2 = generators[2].production * generators[2].amountOwned;
-    total += genTotal2;
-
-    var genTotal3 = generators[3].production * generators[3].amountOwned;
-    total += genTotal3;
-
-    var genTotal4 = generators[4].production * generators[4].amountOwned;
-    total += genTotal4;
-
-    var genTotal5 = generators[5].production * generators[5].amountOwned;
-    total += genTotal5;
-
-    var genTotal6 = generators[6].production * generators[6].amountOwned;
-    total += genTotal6;
-
-    var genTotal7 = generators[7].production * generators[7].amountOwned;
-    total += genTotal7;
-
+    for (i = 0; i < 8; i++) {
+        var temp = generators[i].production * generators[i].amountOwned;
+        total += temp;
+    }
     document.getElementById("total").innerHTML = total;
 }
 setInterval(production, 1000);
