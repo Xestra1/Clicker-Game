@@ -5,6 +5,7 @@ var generators = [{
         id: 0,
         name: "Clicker",
         cost: 25,
+        ogCost: 25,
         production: 0.25,
         amountOwned: 0
     },
@@ -12,6 +13,7 @@ var generators = [{
         id: 1,
         name: "Bitcoin Miner",
         cost: 100,
+        ogCost: 100,
         production: 1,
         amountOwned: 0
     },
@@ -19,6 +21,7 @@ var generators = [{
         id: 2,
         name: "Factory",
         cost: 500,
+        ogCost: 500,
         production: 5,
         amountOwned: 0
     },
@@ -26,6 +29,7 @@ var generators = [{
         id: 3,
         name: "Metals",
         cost: 2500,
+        ogCost: 2500,
         production: 25,
         amountOwned: 0
     },
@@ -33,6 +37,7 @@ var generators = [{
         id: 4,
         name: "Business Man",
         cost: 50000,
+        ogCost: 50000,
         production: 500,
         amountOwned: 0
     },
@@ -40,6 +45,7 @@ var generators = [{
         id: 5,
         name: "Sports Team",
         cost: 250000,
+        ogCost: 250000,
         production: 2500,
         amountOwned: 0
     },
@@ -47,6 +53,7 @@ var generators = [{
         id: 6,
         name: "Earth",
         cost: 5000000,
+        ogCost: 5000000,
         production: 50000,
         amountOwned: 0
     },
@@ -54,6 +61,7 @@ var generators = [{
         id: 7,
         name: "Universe",
         cost: 15000000,
+        ogCost: 15000000,
         production: 150000,
         amountOwned: 0
     }
