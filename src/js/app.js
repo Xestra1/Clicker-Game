@@ -188,6 +188,7 @@ function production() {
         total += temp;
     }
     document.getElementById("total").innerHTML = total;
+    (total === Infinity) ? alert("Ay! \nyou won!"): console.log(" ");
 }
 setInterval(production, 1000);
 
