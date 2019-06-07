@@ -130,8 +130,10 @@ var upgrades = [{
         max: 0
     }
 ];
+var totalId = document.getElementById("total");
+var changedBuyMultiplierId = document.getElementById("changedMultiplier");
 
-document.getElementById("total").innerHTML = total;
+totalId.innerHTML = total;
 for (i = 0; i < 8; i++) {
     document.getElementById("owned" + i).innerHTML = generators[i].amountOwned;
     document.getElementById("cost" + i).innerHTML = generators[i].cost;
@@ -144,7 +146,7 @@ for (h = 0; h < 9; h++) {
 
 function click() {
     total += clickMultiplier;
-    document.getElementById("total").innerHTML = total;
+    totalId.innerHTML = total;
 }
 document.getElementById('click').addEventListener('click', click);
 
@@ -174,7 +176,7 @@ function upgrade(id, upgrade) {
 
 function multiplier(value) {
     buyMultiplier = value;
-    document.getElementById("changedMultiplier").innerHTML = value;
+    changedBuyMultiplierId.innerHTML = value;
 }
 
 function buy(id) {
@@ -184,7 +186,7 @@ function buy(id) {
         total -= temp;
         generators[id].cost = generators[id].cost + generators[id].production * buyMultiplier;
         document.getElementById("owned" + id).innerHTML = generators[id].amountOwned;
-        document.getElementById("total").innerHTML = total;
+        totalId.innerHTML = total;
         document.getElementById("cost" + id).innerHTML = generators[id].cost;
     }
     temp = '';
@@ -195,7 +197,7 @@ function production() {
         var temp = generators[i].production * generators[i].amountOwned;
         total += temp;
     }
-    document.getElementById("total").innerHTML = total;
+    totalId.innerHTML = total;
     (total === Infinity) ? alert("Ay! \nyou won!"): console.log(" ");
 }
 setInterval(production, 1000);
