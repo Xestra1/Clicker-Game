@@ -198,64 +198,17 @@ function production() {
         total += temp;
     }
     totalId.innerHTML = total;
-    (total === Infinity) ? alert("Ay! \nyou won!"): console.log(" ");
+
+    // localStorage.setItem('total', total);
+    // total = Math.round(localStorage.getItem('total') * 100) / 100;
+
+    // localStorage.setItem('generators', JSON.stringify(generators));
+    // console.log(getItem('generators'));
+    (total === Infinity) ? alert("Ay! \nyou won!"): 0;
 }
 setInterval(production, 1000);
 
-
-// var upgrade = {
-//     cost: 50000,
-//     multiplier: 1.5,
-//     max: 0
-// };
-
-// document.getElementById("upgradeCostAll0").innerHTML = upgrade.cost;
-// document.getElementById("upgradeMultiplierAll").innerHTML = upgrade.multiplier;
-
-// function upgradeProduction() {
-//     if (upgrade.max < 6 && upgrade.cost <= total) {
-//         total -= upgrade.cost;
-//         var x;
-//         for (x = 0; x < 8; x++) {
-//             generators[x].production *= upgrade.multiplier;
-//             document.getElementById("production" + x).innerHTML = generators[x].production;
-//         }
-//         upgrade.cost *= 7.5;
-//         upgrade.multiplier = Math.floor(upgrade.multiplier * 1.5);
-//         clickMultiplier *= 2;
-//         document.getElementById("upgradeCost0").innerHTML = upgrade.cost;
-//         document.getElementById("upgradeMultiplier").innerHTML = upgrade.multiplier;
-//         document.getElementById("total").innerHTML = total;
-//         upgrade.max++;
-//     } else if (upgrade.max === 6) {
-//         document.getElementById("upgradeCost0").style.opacity = 0.5;
-//         document.getElementById("upgradeMultiplier").style.opacity = 0.5;
-//     }
-// }
-
-
-// var autoClicker = {
-//     cost: 100000,
-//     haveAutoClicker: false
-// };
-
-// document.getElementById("upgradeCost1").innerHTML = autoClicker.cost;
-// document.getElementById("Autoclicker").innerHTML = autoClicker.haveAutoClicker;
-
-// if (autoClicker.haveAutoClicker === false) {
-//     document.getElementById('click').addEventListener('click', click);
-//     console.log('object');
-// } else if (autoClicker.haveAutoClicker === true) {
-//     document.getElementById('click').addEventListener('onmouseenter', click);
-//     console.log('objfdsect');
-// }
-
-// function upgradeAutoClicker() {
-//     if (autoClicker.cost <= total && autoClicker.haveAutoClicker === false) {
-//         total -= autoClicker.cost;
-//         autoClicker.haveAutoClicker = true;
-//         document.getElementById("Autoclicker").innerHTML = autoClicker.haveAutoClicker;
-//         document.getElementById("upgradeCost1").style.opacity = 0.5;
-//         document.getElementById("Autoclicker").style.opacity = 0.5;
-//     }
-// }
+function load() {
+    // total = parseInt(localStorage.getItem('total'));
+    // generators = localStorage.getItem('generators');
+}
