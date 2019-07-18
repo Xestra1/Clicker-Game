@@ -1,7 +1,7 @@
-var total = 0;
-var clickMultiplier = 1;
-var buyMultiplier = 1;
-var generators = [{
+let total = 0;
+let clickMultiplier = 1;
+let buyMultiplier = 1;
+let generators = [{
         id: 0,
         name: "Clicker",
         cost: 25,
@@ -66,7 +66,7 @@ var generators = [{
         amountOwned: 0
     }
 ];
-var upgrades = [{
+let upgrades = [{
         name: "Click",
         cost: 100,
         multiplier: 2,
@@ -130,27 +130,27 @@ var upgrades = [{
         max: 0
     }
 ];
-var totalId = document.getElementById("total");
-var changedBuyMultiplierId = document.getElementById("changedMultiplier");
+const totalId = document.getElementById("total");
+const changedBuyMultiplierId = document.getElementById("changedMultiplier");
 
 totalId.innerHTML = total;
-for (i = 0; i < 8; i++) {
+for (i = 0; i < generators.length; i++) {
     document.getElementById("owned" + i).innerHTML = generators[i].amountOwned;
     document.getElementById("cost" + i).innerHTML = generators[i].cost;
     document.getElementById("production" + i).innerHTML = generators[i].production;
 }
-for (h = 0; h < 9; h++) {
+for (h = 0; h < upgrades.length; h++) {
     document.getElementById("upgradeCost" + h).innerHTML = upgrades[h].cost;
     document.getElementById("upgradeMultiplier" + h).innerHTML = upgrades[h].multiplier;
 }
 
-function click() {
+const click = () => {
     total += clickMultiplier;
     totalId.innerHTML = total;
 }
 document.getElementById('click').addEventListener('click', click);
 
-function upgrade(id, upgrade) {
+const upgrade = (id, upgrade) => {
     if (upgrade === 10 && upgrades[id].cost <= total && upgrades[id].max < upgrades[id].maxTotal) {
         upgrades[id].max++;
         total -= upgrades[id].cost;
@@ -174,12 +174,12 @@ function upgrade(id, upgrade) {
     }
 }
 
-function multiplier(value) {
+const multiplier = (value) => {
     buyMultiplier = value;
     changedBuyMultiplierId.innerHTML = value;
 }
 
-function buy(id) {
+const buy = (id) => {
     var temp = buyMultiplier * generators[id].cost;
     if (total >= temp) {
         generators[id].amountOwned += buyMultiplier;
@@ -192,23 +192,12 @@ function buy(id) {
     temp = '';
 }
 
-function production() {
+const production = () => {
     for (i = 0; i < 8; i++) {
         var temp = generators[i].production * generators[i].amountOwned;
         total += temp;
     }
     totalId.innerHTML = total;
-
-    // localStorage.setItem('total', total);
-    // total = Math.round(localStorage.getItem('total') * 100) / 100;
-
-    // localStorage.setItem('generators', JSON.stringify(generators));
-    // console.log(getItem('generators'));
     (total === Infinity) ? alert("Ay! \nyou won!"): 0;
 }
 setInterval(production, 1000);
-
-function load() {
-    // total = parseInt(localStorage.getItem('total'));
-    // generators = localStorage.getItem('generators');
-}
